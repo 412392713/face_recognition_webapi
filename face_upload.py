@@ -26,13 +26,14 @@ def face_upload():
         if img1 and allowed_file(img1.filename):
             dt=datetime.now() #创建一个datetime类对象
             dt.strftime( '%Y-%m-%d %H:%M:%S %f')
-            path = os.path.join(os.getcwd(), 'upload', dt.strftime('%Y%m'))
-            if not os.path.exists(path):
+            path = os.path.join('upload', dt.strftime('%Y%m'))
+            if not os.path.exists(os.path.join(os.getcwd(), path)):
                 os.makedirs(path)
-            file_path = os.path.join(path, dt.strftime('%Y%m%d%H%M%S%f_')+ secure_filename(img1.filename))
+            filename = dt.strftime('%Y%m%d%H%M%S%f_')+ secure_filename(img1.filename)
+            file_path = os.path.join(os.getcwd(),path, filename)
             img1.save(file_path)
             result = {
-                'filePath' : file_path
+                'filePath' : os.path.join(path, filename)
             }
             return jsonify(result)
 
