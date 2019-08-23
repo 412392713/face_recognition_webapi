@@ -22,10 +22,10 @@ def face_landmarks_alive():
         if img1 and allowed_file(img1.filename):
             result = {
                 #landmarks : {},
-                openMouth : False,
-                closeEyes : False,
-                lookLeft : False,
-                lookRight : False
+                'openMouth' : False,
+                'closeEyes' : False,
+                'lookLeft' : False,
+                'lookRight' : False
             }
             landmarks = face_recognition.face_landmarks(face_recognition.load_image_file(img1))
             #print(jsonify(landmarks))
