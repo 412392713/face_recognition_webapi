@@ -71,17 +71,17 @@ def face_landmarks_alive():
                 #print eye_right
                 #print eye_left
                 
-				#左看右看
-				right = landmarks[0]["chin"][0]
-				left = landmarks[0]["chin"][16]
+                #左看右看
+                right = landmarks[0]["chin"][0]
+                left = landmarks[0]["chin"][16]
 
-				le = abs((left[0] - eye_left_top[0])*1.0 / (max_x - min_x))
+                le = abs((left[0] - eye_left_top[0])*1.0 / (max_x - min_x))
                 ri = abs((right[0] - eye_right_top[0])*1.0 / (max_x - min_x))
                 look_n = 0.1
                 if request.values.get("lookLeftRight") :
                     eye_n = float(request.values.get("lookLeftRight"))
-				if le < look_n :
-					result['lookLeft'] = True
+                if le < look_n :
+                    result['lookLeft'] = True
                 if ri < look_n :
                     result['lookRight'] = True
                 print le
