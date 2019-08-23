@@ -33,7 +33,7 @@ def face_landmarks_alive():
             if len(landmarks) > 0 :
                 result['landmarks'] = landmarks[0]
                 #取到边框
-                min_x=0, min_y=0, max_x=0, max_y=0
+                min_x=min_y=max_x=max_y=0
                 for k in landmarks[0]:
                     for p in landmarks[0][k] : 
                         min_x = min(min_x, p.x)
