@@ -77,9 +77,9 @@ def face_landmarks_alive():
 
                 le = abs((left[0] - eye_left_top[0])*1.0 / (max_x - min_x))
                 ri = abs((right[0] - eye_right_top[0])*1.0 / (max_x - min_x))
-                look_n = 0.1
+                look_n = 0.2
                 if request.values.get("lookLeftRight") :
-                    eye_n = float(request.values.get("lookLeftRight"))
+                    look_n = float(request.values.get("lookLeftRight"))
                 if le < look_n :
                     result['lookLeft'] = True
                 if ri < look_n :
@@ -92,9 +92,16 @@ def face_landmarks_alive():
     return '''
     <!doctype html>
     <title>face_landmarks_alive</title>
-    <h1>Chose Images</h1>
+    <h1>活体检测</h1>
     <form method="POST" enctype="multipart/form-data">
       <input type="file" name="img1">
-      <input type="submit" value="Upload">
+      <br/>
+      -----------参数---------------
+      <br/>
+      张嘴：<input type="text" name="openMouth" value="0.06">
+      闭眼：<input type="text" name="closeEyes" value="0.03">
+      左右看：<input type="text" name="lookLeftRight" value="0.2">
+      <br/>
+      <input type="submit" value="提交">
     </form>
     '''
