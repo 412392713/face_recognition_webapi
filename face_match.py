@@ -21,7 +21,7 @@ def face_match():
             return redirect(request.url)
 
         if img1 and img2 and allowed_file(img1.filename) and allowed_file(img2.filename):
-            return detect_faces_in_image(img1, img2)
+            return detect_faces_in_image(img1, img2, request.values.get("tolerance"))
 
     return '''
     <!doctype html>
@@ -30,11 +30,12 @@ def face_match():
     <form method="POST" enctype="multipart/form-data">
       <input type="file" name="img1">
 	  <input type="file" name="img2">
+	  <input type="text" name="tolerance" value="0.4">
       <input type="submit" value="Upload">
     </form>
     '''
 
-def detect_faces_in_image(file_stream1, file_stream2):
+def detect_faces_in_image(file_stream1, file_stream2, tolerance):
     img1 = face_recognition.load_image_file(file_stream1)
     known_face_encoding = face_recognition.face_encodings(img1)
 	
@@ -42,9 +43,12 @@ def detect_faces_in_image(file_stream1, file_stream2):
     unknown_face_encodings = face_recognition.face_encodings(img2)
 
     is_match = False
+	tolerance_num = 0.4
+	if tolerance:
+        tolerance_num = float(tolerance)
 
     if len(unknown_face_encodings) > 0:
-        match_results = face_recognition.compare_faces(known_face_encoding, unknown_face_encodings[0], 0.3)
+        match_results = face_recognition.compare_faces(known_face_encoding, unknown_face_encodings[0], tolerance_num)
         #print(jsonify(match_results))
         if match_results[0]:
             is_match = True
