@@ -63,13 +63,29 @@ def face_landmarks_alive():
                 eye_left_bottom = landmarks[0]["right_eye"][5]
                 eye_right = abs((eye_right_top[1] - eye_right_bottom[1])*1.0 / (max_y - min_y))
                 eye_left =  abs((eye_left_top[1] - eye_left_bottom[1])*1.0 / (max_y - min_y))
-                eye_n = 0.02
+                eye_n = 0.03
                 if request.values.get("closeEyes") :
                     eye_n = float(request.values.get("closeEyes"))
                 if eye_right < eye_n and eye_left < eye_n :
                     result['closeEyes'] = True
-                print eye_right
-                print eye_left
+                #print eye_right
+                #print eye_left
+                
+				#左看右看
+				right = landmarks[0]["chin"][0]
+				left = landmarks[0]["chin"][16]
+
+				le = abs((left[0] - eye_left_top[0])*1.0 / (max_x - min_x))
+                ri = abs((right[0] - eye_right_top[0])*1.0 / (max_x - min_x))
+                look_n = 0.1
+                if request.values.get("lookLeftRight") :
+                    eye_n = float(request.values.get("lookLeftRight"))
+				if le < look_n :
+					result['lookLeft'] = True
+                if ri < look_n :
+                    result['lookRight'] = True
+                print le
+                print ri
                 
             return jsonify(result)
 
