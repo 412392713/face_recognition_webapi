@@ -1,7 +1,12 @@
 from flask import Flask
-import face_distance
+from face_distance import face_distance
 
 app = Flask(__name__)
+
+
+@app.route('/face_distance')
+def face_distance_f():
+    return face_distance()
 
 @app.route('/')
 def hello_world():
