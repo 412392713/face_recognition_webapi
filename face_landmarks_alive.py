@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import face_recognition
 from flask import Flask, jsonify, request, redirect
 
@@ -31,6 +32,8 @@ def face_landmarks_alive():
             #print(jsonify(landmarks))
             if len(landmarks) > 0 :
                 result['landmarks'] = landmarks[0]
+                
+                #判断张嘴
                 
             
             return jsonify(result)
