@@ -45,7 +45,10 @@ def face_landmarks_alive():
                 lip_top = landmarks[0]["top_lip"][9]
                 lip_bottom = landmarks[0]["bottom_lip"][9]
                 lip = abs((lip_top[1] - lip_bottom[1]) * 1.0 / (max_y - min_y))
-                if lip > 0.03 :
+                lip_n = 0.06
+                if request.values.get("openMouth") :
+                    lip_n = float(request.values.get("openMouth"))
+                if lip > lip_n :
                     result['openMouth'] = True
                 print lip_top
                 print lip_bottom
