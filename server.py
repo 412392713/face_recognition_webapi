@@ -1,6 +1,7 @@
 from flask import Flask
 from face_distance import face_distance
 from face_match import face_match
+from face_locat import face_locat
 
 app = Flask(__name__)
 
