@@ -2,8 +2,14 @@ from flask import Flask
 from face_distance import face_distance
 from face_match import face_match
 from face_locat import face_locat
+from face_landmarks_alive import face_landmarks_alive
+
 
 app = Flask(__name__)
+
+@app.route('/face_alive', methods=['GET', 'POST'])
+def face_landmarks_alive_f():
+    return face_landmarks_alive()
 
 @app.route('/face_match', methods=['GET', 'POST'])
 def face_match_f():

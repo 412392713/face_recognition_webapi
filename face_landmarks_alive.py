@@ -9,7 +9,7 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
-def face_locat():
+def face_landmarks_alive():
     if request.method == 'POST':
         if 'img1' not in request.files:
             return redirect(request.url)
@@ -20,13 +20,16 @@ def face_locat():
             return redirect(request.url)
 
         if img1 and allowed_file(img1.filename):
-            result = face_recognition.face_locations(face_recognition.load_image_file(img1))
-            print(jsonify(result))
+            landmarks = face_recognition.face_landmarks(face_recognition.load_image_file(img1))
+            #print(jsonify(landmarks))
+            result = {
+                landmarks : landmarks
+            }
             return jsonify(result)
 
     return '''
     <!doctype html>
-    <title>Face Match</title>
+    <title>face_landmarks_alive</title>
     <h1>Chose Images</h1>
     <form method="POST" enctype="multipart/form-data">
       <input type="file" name="img1">

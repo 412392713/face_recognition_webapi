@@ -26,7 +26,7 @@ def face_match():
     return '''
     <!doctype html>
     <title>Face Match</title>
-    <h1>Chose Tow Images</h1>
+    <h1>Chose Images</h1>
     <form method="POST" enctype="multipart/form-data">
       <input type="file" name="img1">
 	  <input type="file" name="img2">
