@@ -1,1 +1,3 @@
 # face_recognition_webapi
+
+face_recognition的web接口封装
