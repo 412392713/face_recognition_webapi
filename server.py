@@ -7,6 +7,10 @@ app = Flask(__name__)
 @app.route('/face_match', methods=['GET', 'POST'])
 def face_match_f():
     return face_match()
+    
+@app.route('/face_locat', methods=['GET', 'POST'])
+def face_locat_f():
+    return face_locat()
 
 @app.route('/face_distance', methods=['GET', 'POST'])
 def face_distance_f():
