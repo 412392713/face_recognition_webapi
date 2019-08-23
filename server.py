@@ -4,15 +4,15 @@ from face_match import face_match
 
 app = Flask(__name__)
 
-@app.route('/face_match')
+@app.route('/face_match', methods=['GET', 'POST'])
 def face_match_f():
     return face_match()
 
-@app.route('/face_distance')
+@app.route('/face_distance', methods=['GET', 'POST'])
 def face_distance_f():
     return face_distance()
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def hello_world():
     return 'Hello World!'
 
