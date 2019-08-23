@@ -5,7 +5,7 @@ from face_match import face_match
 app = Flask(__name__)
 
 @app.route('/face_match')
-def face_distance_f():
+def face_match_f():
     return face_match()
 
 @app.route('/face_distance')
