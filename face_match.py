@@ -15,7 +15,7 @@ def face_match():
             return redirect(request.url)
 
         img1 = request.files['img1']
-	    img2 = request.files['img2']
+        img2 = request.files['img2']
 
         if img1.filename == '' or img2.filename == '' :
             return redirect(request.url)
