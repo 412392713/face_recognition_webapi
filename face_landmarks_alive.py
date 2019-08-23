@@ -36,10 +36,10 @@ def face_landmarks_alive():
                 min_x=min_y=max_x=max_y=0
                 for k in landmarks[0]:
                     for p in landmarks[0][k] : 
-                        min_x = min(min_x, p.x)
-                        min_y = min(min_y, p.y)
-                        max_x = max(max_x, p.x)
-                        max_y = max(max_y, p.y)
+                        min_x = min(min_x, p[0])
+                        min_y = min(min_y, p[1])
+                        max_x = max(max_x, p[0])
+                        max_y = max(max_y, p[1])
                 #判断张嘴
                 lip_top = landmarks[0]["top_lip"][9]
                 lip_bottom = landmarks[0]["bottom_lip"][9]
