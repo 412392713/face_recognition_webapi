@@ -20,13 +20,20 @@ def face_landmarks_alive():
             return redirect(request.url)
 
         if img1 and allowed_file(img1.filename):
+            result = {
+                #landmarks : {},
+                openMouth : False,
+                closeEyes : False,
+                lookLeft : False,
+                lookRight : False
+            }
             landmarks = face_recognition.face_landmarks(face_recognition.load_image_file(img1))
-            print(jsonify(landmarks))
+            #print(jsonify(landmarks))
+            if len(landmarks) > 0 :
+                result['landmarks'] = landmarks[0]
+                
             
-            #result = {
-            #    landmarks : landmarks
-            #}
-            return jsonify(landmarks)
+            return jsonify(result)
 
     return '''
     <!doctype html>
