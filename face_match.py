@@ -25,12 +25,12 @@ def face_match():
 
     return '''
     <!doctype html>
-    <title>比较两个图片相似度</title>
-    <h1>选择两个图片</h1>
+    <title>Face Match</title>
+    <h1>Chose Tow Images</h1>
     <form method="POST" enctype="multipart/form-data">
       <input type="file" name="img1">
 	  <input type="file" name="img2">
-      <input type="submit" value="上传">
+      <input type="submit" value="Upload">
     </form>
     '''
 
