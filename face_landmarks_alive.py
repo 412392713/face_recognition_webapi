@@ -32,8 +32,20 @@ def face_landmarks_alive():
             #print(jsonify(landmarks))
             if len(landmarks) > 0 :
                 result['landmarks'] = landmarks[0]
-                
+                #取到边框
+                min_x=0, min_y=0, max_x=0, max_y=0
+                for k in landmarks[0]:
+                    for p in landmarks[0][k] : 
+                        min_x = min(min_x, p.x)
+                        min_y = min(min_y, p.y)
+                        max_x = max(max_x, p.x)
+                        max_y = max(max_y, p.y)
                 #判断张嘴
+                lip_top = landmarks[0]["top_lip"][9]
+                lip_bottom = landmarks[0]["bottom_lip"][9]
+                lip = abs((lip_top[1] - lip_bottom[1]) / (max_y - min_y))
+                if lip > 0.03 :
+                    result['openMouth'] = True
                 
             
             return jsonify(result)
