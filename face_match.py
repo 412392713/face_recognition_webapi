@@ -43,7 +43,7 @@ def detect_faces_in_image(file_stream1, file_stream2, tolerance):
     unknown_face_encodings = face_recognition.face_encodings(img2)
 
     is_match = False
-	tolerance_num = 0.4
+    tolerance_num = 0.4
 	if tolerance:
         tolerance_num = float(tolerance)
 
