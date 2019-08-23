@@ -47,6 +47,11 @@ def face_landmarks_alive():
                 lip = abs((lip_top[1] - lip_bottom[1]) / (max_y - min_y))
                 if lip > 0.03 :
                     result['openMouth'] = True
+                print lip_top
+                print lip_bottom
+                print max_y
+                print min_y
+                print lip
                 print('lip=%.f' %(lip))
                 
             
