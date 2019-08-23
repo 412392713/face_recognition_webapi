@@ -3,10 +3,15 @@ from face_distance import face_distance
 from face_match import face_match
 from face_locat import face_locat
 from face_landmarks_alive import face_landmarks_alive
+from face_upload import face_upload
 
 
 app = Flask(__name__)
 
+@app.route('/face_upload', methods=['GET', 'POST'])
+def face_upload_f():
+    return face_upload()
+    
 @app.route('/face_alive', methods=['GET', 'POST'])
 def face_landmarks_alive_f():
     return face_landmarks_alive()
