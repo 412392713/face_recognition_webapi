@@ -44,7 +44,7 @@ def face_landmarks_alive():
                 #判断张嘴
                 lip_top = landmarks[0]["top_lip"][9]
                 lip_bottom = landmarks[0]["bottom_lip"][9]
-                lip = abs((lip_top[1] - lip_bottom[1]) / (max_y - min_y))
+                lip = abs((lip_top[1] - lip_bottom[1]) * 1.0 / (max_y - min_y))
                 if lip > 0.03 :
                     result['openMouth'] = True
                 print lip_top
