@@ -44,8 +44,8 @@ def detect_faces_in_image(file_stream1, file_stream2):
     is_match = False
 
     if len(unknown_face_encodings) > 0:
-        match_results = face_recognition.compare_faces([known_face_encoding], unknown_face_encodings[0])
-        return jsonify(match_results)
+        match_results = face_recognition.compare_faces([known_face_encoding], unknown_face_encodings[0], 0.4)
+        #return jsonify(match_results)
         if match_results[0]:
             is_match = True
 
