@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import face_recognition
 from flask import Flask, jsonify, request, redirect
 
@@ -25,13 +26,17 @@ def face_match():
 
     return '''
     <!doctype html>
-    <title>Face Match</title>
-    <h1>Chose Images</h1>
+    <title>人像匹配</title>
+    <h1>人像匹配</h1>
     <form method="POST" enctype="multipart/form-data">
       <input type="file" name="img1">
 	  <input type="file" name="img2">
+      <br/>
+      参数：越小越严格
+      <br/>
 	  <input type="text" name="tolerance" value="0.4">
-      <input type="submit" value="Upload">
+      <br/>
+      <input type="submit" value="提交">
     </form>
     '''
 
