@@ -68,7 +68,9 @@ def face_landmarks_alive():
                     eye_n = float(request.values.get("closeEyes"))
                 if eye_right < eye_n and eye_left < eye_n :
                     result['closeEyes'] = True
-            
+                print eye_right
+                print eye_left
+                
             return jsonify(result)
 
     return '''
