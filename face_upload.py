@@ -6,8 +6,7 @@ from werkzeug import secure_filename
 from datetime import datetime
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
-app.config['UPLOAD_FOLDER'] = os.getcwd()
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+
 
 def allowed_file(filename):
     return '.' in filename and \
@@ -27,7 +26,7 @@ def face_upload():
         if img1 and allowed_file(img1.filename) and allowed_file(img1.filename):
             dt=datetime.now() #创建一个datetime类对象
             dt.strftime( '%Y-%m-%d %H:%M:%S %f')
-            file_path = os.path.join(app.config['UPLOAD_FOLDER'], 'upload', dt.strftime('%Y%m'), dt.strftime( '%Y%m%d%H%M%S%f_')+filename)
+            file_path = os.path.join(os.getcwd(), 'upload', dt.strftime('%Y%m'), dt.strftime( '%Y%m%d%H%M%S%f_')+filename)
             img1.save(file_path)
             result = {
                 'filePath' : file_path
