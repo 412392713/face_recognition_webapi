@@ -85,9 +85,9 @@ def face_landmarks_alive():
     <h1>活体检测</h1>
     <form method="POST" enctype="multipart/form-data">
       图片路径1：<input type="text" name="img1">
-      <br/>
+      <br/><br/>
       -----------参数---------------
-      <br/>
+      <br/><br/>
       张嘴：<input type="text" name="openMouth" value="0.06">
       闭眼：<input type="text" name="closeEyes" value="0.03">
       左右看：<input type="text" name="lookLeftRight" value="0.2">

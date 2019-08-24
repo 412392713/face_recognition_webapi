@@ -4,13 +4,9 @@ import os
 from flask import Flask, jsonify, request, redirect
 from werkzeug import secure_filename
 from datetime import datetime
+from face_util import allowed_file
+from face_util import file_ext
 
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
-
-
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 #上传文件
 def face_upload():
@@ -29,7 +25,7 @@ def face_upload():
             path = os.path.join('upload', dt.strftime('%Y%m'))
             if not os.path.exists(os.path.join(os.getcwd(), path)):
                 os.makedirs(path)
-            filename = dt.strftime('%Y%m%d%H%M%S%f_')+ secure_filename(img1.filename)
+            filename = dt.strftime('%Y%m%d%H%M%S%f_')+ file_ext(img1.filename)
             file_path = os.path.join(os.getcwd(),path, filename)
             img1.save(file_path)
             result = {

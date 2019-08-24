@@ -4,5 +4,11 @@
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
 
 def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+    return  file_ext(filename) in ALLOWED_EXTENSIONS
+    
+def file_ext(filename):
+    if '.' in filename:
+        names = filename.rsplit('.', 1)
+        return names[len(names)-1].lower()
+    return ''
+    
