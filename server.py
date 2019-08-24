@@ -35,9 +35,8 @@ def index():
     return '''
     <!doctype html>
     <title>人脸识别</title>
-    <h1>人脸识别</h1>
     <p> <a href="face_upload" target="mainframe">图片上传</a> &nbsp;&nbsp; <a href="face_locat" target="mainframe">人像定位</a></p>
-    <iframe src="face_upload" id="mainframe" name="mainframe"></iframe>
+    <iframe src="face_upload" id="mainframe" name="mainframe" width="100%" height="100%"></iframe>
     '''
 
 if __name__ == '__main__':
