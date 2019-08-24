@@ -1,26 +1,15 @@
 # -*- coding: utf-8 -*-
 import face_recognition
 from flask import Flask, jsonify, request, redirect
-
-
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}
-
-def allowed_file(filename):
-    return '.' in filename and \
-           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+from face_util import allowed_file
+import os
 
 
 def face_landmarks_alive():
     if request.method == 'POST':
-        if 'img1' not in request.files:
-            return redirect(request.url)
+        img1 = request.values.get("img1")
 
-        img1 = request.files['img1']
-
-        if img1.filename == '':
-            return redirect(request.url)
-
-        if img1 and allowed_file(img1.filename):
+        if img1 and allowed_file(img1):
             result = {
                 #landmarks : {},
                 'openMouth' : False,
@@ -28,7 +17,8 @@ def face_landmarks_alive():
                 'lookLeft' : False,
                 'lookRight' : False
             }
-            landmarks = face_recognition.face_landmarks(face_recognition.load_image_file(img1))
+            file_path = os.path.join(os.getcwd(),img1)
+            landmarks = face_recognition.face_landmarks(face_recognition.load_image_file(file_path))
             #print(jsonify(landmarks))
             if len(landmarks) > 0 :
                 result['landmarks'] = landmarks[0]
@@ -94,14 +84,32 @@ def face_landmarks_alive():
     <title>face_landmarks_alive</title>
     <h1>活体检测</h1>
     <form method="POST" enctype="multipart/form-data">
-      <input type="file" name="img1">
+      图片路径1：<input type="text" name="img1">
       <br/>
       -----------参数---------------
       <br/>
       张嘴：<input type="text" name="openMouth" value="0.06">
       闭眼：<input type="text" name="closeEyes" value="0.03">
       左右看：<input type="text" name="lookLeftRight" value="0.2">
-      <br/>
+      <br/><br/>
       <input type="submit" value="提交">
     </form>
+    <br/>
+      <br/>
+      <br/>
+      --------------说明----------------------------<br/>
+      结果不理想，尝试微调参数。
+      
+      返回：
+      {
+                'landmarks' : 人脸关键点坐标,
+                'openMouth' : 是否张嘴,
+                'closeEyes' : 是否闭眼,
+                'lookLeft' : 是否向左看,
+                'lookRight' : 是否向右看
+            }
+      <br/>
+      <br/>
+      <br/>
+    
     '''

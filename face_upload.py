@@ -43,13 +43,13 @@ def face_upload():
     <h1>上传文件</h1>
     <form method="POST" enctype="multipart/form-data">
       <input type="file" name="img1">
-      <br/>
+      <br/><br/>
       <input type="submit" value="提交">
     </form>
     <br/>
       <br/>
       <br/>
-      --------------说明----------------------------
+      --------------说明----------------------------<br/>
       调用其他接口之前，先上传图片。图片路径可以多次使用。
       
       返回：

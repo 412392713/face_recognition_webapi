@@ -7,8 +7,8 @@ import os
 
 def face_match():
     if request.method == 'POST':
-        img1 = request.files['img1']
-        img2 = request.files['img2']
+        img1 = request.values.get("img1")
+        img2 = request.values.get("img2")
 
         if img1 and img2 and allowed_file(img1) and allowed_file(img2):
             file_path1 = os.path.join(os.getcwd(),img1)
@@ -22,16 +22,17 @@ def face_match():
     <form method="POST" enctype="multipart/form-data">
       图片路径1：<input type="text" name="img1">
 	  图片路径2：<input type="text" name="img2">
-      <br/>
+      <br/><br/>
       ----------参数：越小越严格---------------
-      <br/>
+      <br/><br/>
 	  <input type="text" name="tolerance" value="0.4">
-      <br/>
+      <br/><br/>
       <input type="submit" value="提交">
       <br/>
       <br/>
       <br/>
       --------------说明----------------------------
+      <br/>
       返回：
       {
         "is_match": 是否匹配(true/false)

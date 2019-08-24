@@ -20,7 +20,7 @@ def face_locat():
     <h1>人像定位</h1>
     <form method="POST" enctype="multipart/form-data">
       图片路径1：<input type="text" name="img1">
-      <br/>
+      <br/><br/>
       <input type="submit" value="提交">
     </form>
     '''
