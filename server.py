@@ -30,8 +30,14 @@ def face_distance_f():
     return face_distance()
 
 @app.route('/', methods=['GET', 'POST'])
-def hello_world():
-    return 'Hello World!'
+def index():
+    return '''
+    <!doctype html>
+    <title>人脸识别</title>
+    <h1>人脸识别</h1>
+    <p> <a href="face_upload" target="mainframe">图片上传</a> &nbsp;&nbsp; <a href="face_locat" target="mainframe">人像定位</a></p>
+    <iframe src="face_upload" id="mainframe" name="mainframe"></iframe>
+    '''
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=False)
