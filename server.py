@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from flask import Flask
 from face_distance import face_distance
 from face_match import face_match
