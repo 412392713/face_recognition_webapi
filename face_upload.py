@@ -25,7 +25,7 @@ def face_upload():
             path = os.path.join('upload', dt.strftime('%Y%m'))
             if not os.path.exists(os.path.join(os.getcwd(), path)):
                 os.makedirs(path)
-            filename = dt.strftime('%Y%m%d%H%M%S%f_')+ file_ext(img1.filename)
+            filename = dt.strftime('%Y%m%d%H%M%S%f_.')+ file_ext(img1.filename)
             file_path = os.path.join(os.getcwd(),path, filename)
             img1.save(file_path)
             result = {
