@@ -23,4 +23,15 @@ def face_locat():
       <br/><br/>
       <input type="submit" value="提交">
     </form>
+    <br/>
+      <br/>
+      <br/>
+      --------------说明----------------------------<br/>
+      注意返回的坐标顺序
+      (top, right, bottom, left)
+      
+      <br/>
+      <br/>
+      <br/>
+    
     '''

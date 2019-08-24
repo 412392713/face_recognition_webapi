@@ -53,7 +53,7 @@ def face_landmarks_alive():
                 eye_left_bottom = landmarks[0]["right_eye"][5]
                 eye_right = abs((eye_right_top[1] - eye_right_bottom[1])*1.0 / (max_y - min_y))
                 eye_left =  abs((eye_left_top[1] - eye_left_bottom[1])*1.0 / (max_y - min_y))
-                eye_n = 0.03
+                eye_n = 0.04
                 if request.values.get("closeEyes") :
                     eye_n = float(request.values.get("closeEyes"))
                 if eye_right < eye_n and eye_left < eye_n :
