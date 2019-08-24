@@ -35,7 +35,10 @@ def index():
     return '''
     <!doctype html>
     <title>人脸识别</title>
-    <p> <a href="face_upload" target="mainframe">图片上传</a> &nbsp;&nbsp; <a href="face_locat" target="mainframe">人像定位</a></p>
+    <p> <a href="face_upload" target="mainframe">图片上传</a> 
+    &nbsp;&nbsp; <a href="face_locat" target="mainframe">人像定位</a>
+    &nbsp;&nbsp; <a href="face_match" target="mainframe">图片匹配</a>
+    &nbsp;&nbsp; <a href="face_alive" target="mainframe">活体识别</a></p>
     <iframe src="face_upload" id="mainframe" name="mainframe" width="100%" height="100%"></iframe>
     '''
 
