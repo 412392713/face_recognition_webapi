@@ -7,7 +7,7 @@ import os
 def face_locat():
     if request.method == 'POST':
         img1 = request.values.get("img1")
-        print img1
+        #print img1
         if img1 and allowed_file(img1):
             file_path = os.path.join(os.getcwd(),img1)
             result = face_recognition.face_locations(face_recognition.load_image_file(file_path))
