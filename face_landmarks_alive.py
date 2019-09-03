@@ -74,8 +74,8 @@ def face_landmarks_alive():
                     result['lookLeft'] = True
                 if ri < look_n :
                     result['lookRight'] = True
-                print le
-                print ri
+                #print le
+                #print ri
                 
             return jsonify(result)
 
