@@ -5,6 +5,7 @@ from face_match import face_match
 from face_locat import face_locat
 from face_landmarks_alive import face_landmarks_alive
 from face_upload import face_upload
+from pp_mrz import pp_mrz
 
 
 app = Flask(__name__)
@@ -22,6 +23,10 @@ def face_landmarks_alive_f():
 def face_match_f():
     return face_match()
     
+@app.route('/pp_mrz', methods=['GET', 'POST'])
+def pp_mrz_f():
+    return pp_mrz()
+    
 @app.route('/face_locat', methods=['GET', 'POST'])
 def face_locat_f():
     return face_locat()
@@ -38,7 +43,8 @@ def index():
     <p> <a href="face_upload" target="mainframe">图片上传</a> 
     &nbsp;&nbsp; <a href="face_locat" target="mainframe">人像定位</a>
     &nbsp;&nbsp; <a href="face_match" target="mainframe">图片匹配</a>
-    &nbsp;&nbsp; <a href="face_alive" target="mainframe">活体识别</a></p>
+    &nbsp;&nbsp; <a href="face_alive" target="mainframe">活体识别</a>
+    &nbsp;&nbsp; <a href="mrz" target="mainframe">护照识别</a></p>
     <iframe src="face_upload" id="mainframe" name="mainframe" width="100%" height="600"></iframe>
     '''
 

@@ -6,13 +6,13 @@ from passporteye import read_mrz
 import os
 
 
-def face_match():
+def pp_mrz():
     if request.method == 'POST':
         img1 = request.values.get("img1")
 
         if img1 and allowed_file(img1):
             file_path1 = os.path.join(os.getcwd(),img1)
-            return pp_mrz(file_path1)
+            return pp_mrz_(file_path1)
 
     return '''
     <!doctype html>
@@ -38,7 +38,7 @@ def face_match():
     </form>
     '''
 
-def pp_mrz(file_path1):
+def pp_mrz_(file_path1):
     mrz = read_mrz(file_path1)
 
     # Return the result as json
