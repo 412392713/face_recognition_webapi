@@ -41,5 +41,8 @@ def pp_mrz():
 def pp_mrz_(file_path1):
     mrz = read_mrz(file_path1)
 
-   
-    return mrz
+    # Return the result as json
+    result = {
+        "mrz": mrz.to_dict()
+    }
+    return jsonify(result)
