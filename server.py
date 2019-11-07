@@ -44,7 +44,7 @@ def index():
     &nbsp;&nbsp; <a href="face_locat" target="mainframe">人像定位</a>
     &nbsp;&nbsp; <a href="face_match" target="mainframe">图片匹配</a>
     &nbsp;&nbsp; <a href="face_alive" target="mainframe">活体识别</a>
-    &nbsp;&nbsp; <a href="mrz" target="mainframe">护照识别</a></p>
+    &nbsp;&nbsp; <a href="pp_mrz" target="mainframe">护照识别</a></p>
     <iframe src="face_upload" id="mainframe" name="mainframe" width="100%" height="600"></iframe>
     '''
 
